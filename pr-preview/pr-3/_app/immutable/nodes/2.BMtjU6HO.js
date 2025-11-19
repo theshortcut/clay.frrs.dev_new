@@ -1,0 +1,1 @@
+import{f as a,a as p}from"../chunks/DMA8a98q.js";import"../chunks/CU14feT8.js";import{n as t}from"../chunks/BT00F1ZL.js";var m=a("<h1>clay.frrs.dev</h1> <p>hello world</p>",1);function l(o){var r=m();t(2),p(o,r)}export{l as component};

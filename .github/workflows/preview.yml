@@ -5,10 +5,8 @@ on:
     types: [opened, synchronize, reopened]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: preview-${{ github.ref }}
@@ -43,12 +41,28 @@ jobs:
           retention-days: 7
 
       - name: Deploy preview to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          destination_dir: pr-${{ github.event.pull_request.number }}
-          keep_files: false
+        run: |
+          # Configure git
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Clone gh-pages branch
+          git fetch origin gh-pages || git checkout --orphan gh-pages
+          git checkout gh-pages || git checkout --orphan gh-pages
+
+          # Remove old preview directory if it exists
+          rm -rf pr-${{ github.event.pull_request.number }}
+
+          # Copy new build to preview directory
+          mkdir -p pr-${{ github.event.pull_request.number }}
+          cp -r build/* pr-${{ github.event.pull_request.number }}/
+
+          # Commit and push
+          git add pr-${{ github.event.pull_request.number }}
+          git commit -m "Deploy preview for PR #${{ github.event.pull_request.number }}" || echo "No changes to commit"
+          git push origin gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment preview URL
         uses: actions/github-script@v7

@@ -30,6 +30,7 @@ Creates preview deployments for pull requests, allowing you to review changes be
 - Automatic comment on PR with preview link
 - Preview updates automatically with new commits
 - Preview artifacts retained for 7 days
+- Uses git commands to manage gh-pages branch (no third-party actions required)
 
 ## Setup Instructions
 
@@ -38,6 +39,12 @@ To enable GitHub Pages for this repository:
 1. Go to repository Settings → Pages
 2. Under "Source", select "GitHub Actions"
 3. The site will be automatically deployed when you push to `main`
+
+**Note:** Both workflows use the official GitHub Pages actions:
+- Production uses `actions/upload-pages-artifact` and `actions/deploy-pages` for deployment
+- Production also syncs to the gh-pages branch to preserve PR preview directories
+- PR previews use git commands to push to subdirectories in gh-pages
+- No third-party deployment actions required
 
 ### Custom Domain (Optional)
 
@@ -54,11 +61,14 @@ If you want to use a custom domain:
 
 ### Required Permissions
 
-The workflows require the following permissions (already configured):
+**Production Deployment (`deploy.yml`):**
 - `contents: read` - Read repository contents
 - `pages: write` - Deploy to GitHub Pages
 - `id-token: write` - Authenticate with GitHub Pages
-- `pull-requests: write` - Comment on PRs (preview workflow)
+
+**PR Preview (`preview.yml`):**
+- `contents: write` - Push to gh-pages branch
+- `pull-requests: write` - Comment on PRs
 
 ## Local Development
 

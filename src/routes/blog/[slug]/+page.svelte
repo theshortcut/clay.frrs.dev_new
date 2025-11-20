@@ -34,68 +34,90 @@
 
 	.back-link {
 		display: inline-block;
-		color: #666;
+		color: var(--text-secondary);
 		text-decoration: none;
 		margin-bottom: 1rem;
 		transition: color 0.2s ease;
 	}
 
 	.back-link:hover {
-		color: #333;
+		color: var(--text-color);
 	}
 
 	h1 {
 		font-size: 2.5rem;
 		margin-bottom: 0.5rem;
-		color: #333;
+		color: var(--text-color);
 		line-height: 1.2;
 	}
 
 	.date {
 		font-size: 0.95rem;
-		color: #999;
+		color: var(--text-tertiary);
 	}
 
 	.content :global(h2) {
 		font-size: 1.8rem;
 		margin-top: 2.5rem;
 		margin-bottom: 1rem;
-		color: #333;
+		color: var(--text-color);
 	}
 
 	.content :global(h3) {
 		font-size: 1.4rem;
 		margin-top: 2rem;
 		margin-bottom: 0.75rem;
-		color: #444;
+		color: var(--text-color);
 	}
 
 	.content :global(p) {
 		font-size: 1.1rem;
 		line-height: 1.8;
-		color: #444;
+		color: var(--text-color);
 		margin-bottom: 1.5rem;
 	}
 
-	.content :global(code) {
-		background-color: #f5f5f5;
+	/* Inline code styling */
+	.content :global(code:not(pre code)) {
+		background-color: var(--hover-bg);
 		padding: 0.2rem 0.4rem;
 		border-radius: 3px;
 		font-family: 'Courier New', monospace;
 		font-size: 0.9em;
+		color: var(--text-color);
 	}
 
+	/* Shiki code blocks - let Shiki handle the styling */
 	.content :global(pre) {
-		background-color: #f5f5f5;
 		padding: 1rem;
-		border-radius: 5px;
+		border-radius: 8px;
 		overflow-x: auto;
 		margin-bottom: 1.5rem;
+		border: 1px solid var(--border-color);
 	}
 
 	.content :global(pre code) {
-		background-color: transparent;
+		background-color: transparent !important;
 		padding: 0;
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+
+	/* Shiki theme switching support */
+	.content :global(pre[class*="shiki"]) {
+		background-color: transparent !important;
+	}
+
+	:global([data-theme="light"]) .content :global(.shiki),
+	:global([data-theme="light"]) .content :global(.shiki span) {
+		color: var(--shiki-light) !important;
+		background-color: var(--shiki-light-bg) !important;
+	}
+
+	:global([data-theme="dark"]) .content :global(.shiki),
+	:global([data-theme="dark"]) .content :global(.shiki span) {
+		color: var(--shiki-dark) !important;
+		background-color: var(--shiki-dark-bg) !important;
 	}
 
 	.content :global(ul),
@@ -107,26 +129,26 @@
 	.content :global(li) {
 		font-size: 1.1rem;
 		line-height: 1.8;
-		color: #444;
+		color: var(--text-color);
 		margin-bottom: 0.5rem;
 	}
 
 	.content :global(blockquote) {
-		border-left: 4px solid #e0e0e0;
+		border-left: 4px solid var(--border-color);
 		padding-left: 1.5rem;
 		margin: 1.5rem 0;
-		color: #666;
+		color: var(--text-secondary);
 		font-style: italic;
 	}
 
 	.content :global(a) {
-		color: #0066cc;
+		color: var(--link-color);
 		text-decoration: none;
-		border-bottom: 1px solid #cce0ff;
+		border-bottom: 1px solid var(--border-color);
 		transition: border-color 0.2s ease;
 	}
 
 	.content :global(a:hover) {
-		border-color: #0066cc;
+		border-color: var(--link-color);
 	}
 </style>

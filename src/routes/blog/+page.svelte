@@ -32,12 +32,12 @@
 	h1 {
 		font-size: 2.5rem;
 		margin-bottom: 2rem;
-		color: #333;
+		color: var(--text-color);
 	}
 
 	.no-posts {
 		font-size: 1.1rem;
-		color: #666;
+		color: var(--text-secondary);
 		text-align: center;
 		padding: 3rem 0;
 	}
@@ -50,34 +50,39 @@
 
 	.post-card {
 		padding: 1.5rem;
-		border: 2px solid #e0e0e0;
+		border: 2px solid var(--border-color);
 		border-radius: 8px;
 		text-decoration: none;
 		color: inherit;
 		transition: all 0.3s ease;
+		background-color: var(--surface-color);
 	}
 
 	.post-card:hover {
-		border-color: #333;
+		border-color: var(--text-color);
 		transform: translateX(4px);
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	:global([data-theme='dark']) .post-card:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	}
 
 	.post-card h2 {
 		font-size: 1.8rem;
 		margin-bottom: 0.5rem;
-		color: #333;
+		color: var(--text-color);
 	}
 
 	.date {
 		font-size: 0.9rem;
-		color: #999;
+		color: var(--text-tertiary);
 		margin-bottom: 0.75rem;
 	}
 
 	.description {
 		font-size: 1.05rem;
-		color: #666;
+		color: var(--text-secondary);
 		line-height: 1.6;
 		margin: 0;
 	}

@@ -17,6 +17,8 @@
 		"@sveltejs/kit": "^2.48.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"mdsvex": "^0.12.6",
+		"prism-themes": "^1.9.0",
+		"shiki": "^3.15.0",
 		"svelte": "^5.43.12",
 		"svelte-check": "^4.3.4",
 		"typescript": "^5.9.3",

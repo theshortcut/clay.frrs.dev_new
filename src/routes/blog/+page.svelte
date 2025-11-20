@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	let { data } = $props();
 </script>
 
@@ -10,7 +12,7 @@
 	{:else}
 		<div class="posts">
 			{#each data.posts as post}
-				<a href="/blog/{post.slug}" class="post-card">
+				<a href="{base}/blog/{post.slug}" class="post-card">
 					<h2>{post.title}</h2>
 					<p class="date">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 					<p class="description">{post.description}</p>

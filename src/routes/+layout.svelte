@@ -1,6 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 
 	let { children } = $props();
 </script>
@@ -14,11 +15,11 @@
 <div class="layout">
 	<nav>
 		<div class="nav-container">
-			<a href="/" class="logo">clay.frrs.dev</a>
+			<a href="{base}/" class="logo">clay.frrs.dev</a>
 			<div class="nav-links">
-				<a href="/" class:active={$page.url.pathname === '/'}>Home</a>
-				<a href="/about" class:active={$page.url.pathname === '/about'}>About</a>
-				<a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}>Blog</a>
+				<a href="{base}/" class:active={$page.url.pathname === `${base}/` || $page.url.pathname === base}>Home</a>
+				<a href="{base}/about" class:active={$page.url.pathname === `${base}/about`}>About</a>
+				<a href="{base}/blog" class:active={$page.url.pathname.startsWith(`${base}/blog`)}>Blog</a>
 			</div>
 		</div>
 	</nav>

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	let { data } = $props();
 </script>
 
@@ -9,13 +11,13 @@
 
 <article class="container">
 	<header>
-		<a href="/blog" class="back-link">← Back to Blog</a>
+		<a href="{base}/blog" class="back-link">← Back to Blog</a>
 		<h1>{data.metadata.title}</h1>
 		<p class="date">{new Date(data.metadata.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
 	</header>
 
 	<div class="content">
-		<svelte:component this={data.content} />
+		{@render data.content()}
 	</div>
 </article>
 

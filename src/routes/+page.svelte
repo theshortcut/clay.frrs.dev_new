@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 </script>
 
 <div class="container">
@@ -6,12 +7,12 @@
 	<p>Hi! I'm Clay. This is my personal website where I share thoughts, projects, and ideas.</p>
 
 	<div class="quick-links">
-		<a href="/about" class="link-card">
+		<a href="{base}/about" class="link-card">
 			<h2>About Me</h2>
 			<p>Learn more about who I am and what I do</p>
 		</a>
 
-		<a href="/blog" class="link-card">
+		<a href="{base}/blog" class="link-card">
 			<h2>Blog</h2>
 			<p>Read my latest thoughts and articles</p>
 		</a>

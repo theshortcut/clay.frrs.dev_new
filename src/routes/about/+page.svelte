@@ -34,14 +34,14 @@
 	h1 {
 		font-size: 2.5rem;
 		margin-bottom: 2rem;
-		color: #333;
+		color: var(--text-color);
 	}
 
 	h2 {
 		font-size: 1.8rem;
 		margin-top: 2rem;
 		margin-bottom: 1rem;
-		color: #444;
+		color: var(--text-color);
 	}
 
 	.content {
@@ -50,7 +50,7 @@
 
 	p {
 		font-size: 1.1rem;
-		color: #666;
+		color: var(--text-secondary);
 		margin-bottom: 1rem;
 	}
 </style>

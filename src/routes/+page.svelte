@@ -29,13 +29,13 @@
 	h1 {
 		font-size: 2.5rem;
 		margin-bottom: 1rem;
-		color: #333;
+		color: var(--text-color);
 	}
 
 	p {
 		font-size: 1.2rem;
 		line-height: 1.6;
-		color: #666;
+		color: var(--text-secondary);
 		margin-bottom: 2rem;
 	}
 
@@ -48,28 +48,33 @@
 
 	.link-card {
 		padding: 1.5rem;
-		border: 2px solid #e0e0e0;
+		border: 2px solid var(--border-color);
 		border-radius: 8px;
 		text-decoration: none;
 		color: inherit;
 		transition: all 0.3s ease;
+		background-color: var(--surface-color);
 	}
 
 	.link-card:hover {
-		border-color: #333;
+		border-color: var(--text-color);
 		transform: translateY(-2px);
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	:global([data-theme='dark']) .link-card:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 	}
 
 	.link-card h2 {
 		font-size: 1.5rem;
 		margin-bottom: 0.5rem;
-		color: #333;
+		color: var(--text-color);
 	}
 
 	.link-card p {
 		font-size: 1rem;
 		margin-bottom: 0;
-		color: #666;
+		color: var(--text-secondary);
 	}
 </style>

@@ -23,6 +23,7 @@
 					<a href="{base}/" class:active={$page.url.pathname === `${base}/` || $page.url.pathname === base}>Home</a>
 					<a href="{base}/about" class:active={$page.url.pathname === `${base}/about`}>About</a>
 					<a href="{base}/blog" class:active={$page.url.pathname.startsWith(`${base}/blog`)}>Blog</a>
+					<a href="{base}/now" class:active={$page.url.pathname.startsWith(`${base}/now`)}>Now</a>
 				</div>
 				<ThemeToggle />
 			</div>
